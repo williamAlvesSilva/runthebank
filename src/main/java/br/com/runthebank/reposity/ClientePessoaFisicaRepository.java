@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import br.com.runthebank.dao.PessoaFisicaDao;
-import br.com.runthebank.model.PessoaFisica;
+import br.com.runthebank.model.pessoa.PessoaFisica;
 
 @Service
 public interface ClientePessoaFisicaRepository extends JpaRepository<PessoaFisicaDao, Long>{
