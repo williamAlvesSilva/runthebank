@@ -14,6 +14,7 @@ import br.com.runthebank.model.conta.TipoConta;
 import br.com.runthebank.model.pessoa.Pessoa;
 import br.com.runthebank.model.pessoa.PessoaFisica;
 import br.com.runthebank.reposity.ContaRepository;
+import br.com.runthebank.utils.ContaUtils;
 
 public class CadastrarContaPessoaService implements CadastrarContaService {
 
@@ -45,7 +46,7 @@ public class CadastrarContaPessoaService implements CadastrarContaService {
     		}
     		
     		contaDao.setSaldo(conta.getSaldo());
-    		contaDao.setSaldoIsNegative_Zero_Positive(saldo_negative_zero_positive(conta.isSaldoState()));
+    		contaDao.setSaldoIsNegative_Zero_Positive(ContaUtils.saldo_negative_zero_positive(conta.isSaldoState()));
     		contaDao.setStatus(conta.getStatus() == StatusConta.ATIVA ? 1 : 0);
     		
     		contaRepository.save(contaDao);
@@ -63,25 +64,6 @@ public class CadastrarContaPessoaService implements CadastrarContaService {
 			retorno = 2;
 		}
     	
-		return retorno;
-	}
-	
-	private String saldo_negative_zero_positive(SaldoState state)
-	{
-		String retorno = "";
-		switch(state)
-		{
-		case NEGATIVE:
-			retorno = "-";
-			break;
-		case ZERO:
-			retorno = "0";
-			break;
-		case POSITIVE:
-			retorno = "+";
-			break;
-		}
-		
 		return retorno;
 	}
 }

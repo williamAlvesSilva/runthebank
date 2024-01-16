@@ -6,6 +6,7 @@ import br.com.runthebank.model.pessoa.Pessoa;
 
 public class Conta {
 
+	private long id;
     private long agencia;
     private int saldo;
     private SaldoState saldoState;
@@ -47,5 +48,11 @@ public class Conta {
 	}
 	public void setPessoaCliente(List<Pessoa> pessoaClienteList) {
 		this.pessoaClienteList = pessoaClienteList;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }
